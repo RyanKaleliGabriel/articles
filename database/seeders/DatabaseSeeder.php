@@ -14,11 +14,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        //We can make it easier by adding our seeders to the main DatabaseSeeder class inside the database/seeds folder
+        $this->call(ArticlesTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
+        //This way, we can simply run $ php artisan db:seed and it will run all the called classes in the run() method.
     }
 }
